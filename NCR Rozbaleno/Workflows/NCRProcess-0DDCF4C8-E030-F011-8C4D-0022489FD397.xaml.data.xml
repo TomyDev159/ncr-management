@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Workflow WorkflowId="{0ddcf4c8-e030-f011-8c4d-0022489fd397}" Name="NCR Process" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <XamlFileName>/Workflows/NCRProcess-0DDCF4C8-E030-F011-8C4D-0022489FD397.xaml</XamlFileName>
+  <Type>1</Type>
+  <Subprocess>0</Subprocess>
+  <Category>4</Category>
+  <Mode>0</Mode>
+  <Scope>4</Scope>
+  <OnDemand>0</OnDemand>
+  <TriggerOnCreate>1</TriggerOnCreate>
+  <TriggerOnDelete>0</TriggerOnDelete>
+  <AsyncAutodelete>0</AsyncAutodelete>
+  <SyncWorkflowLogOnFailure>0</SyncWorkflowLogOnFailure>
+  <StateCode>1</StateCode>
+  <StatusCode>2</StatusCode>
+  <processorder>100</processorder>
+  <RunAs>1</RunAs>
+  <UniqueName>con_ncrprocess</UniqueName>
+  <IsTransacted>1</IsTransacted>
+  <IntroducedVersion>1.0.0.0</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <BusinessProcessType>0</BusinessProcessType>
+  <IsCustomProcessingStepAllowedForOtherPublishers>1</IsCustomProcessingStepAllowedForOtherPublishers>
+  <ProcessTriggerScope>1</ProcessTriggerScope>
+  <ModernFlowType>0</ModernFlowType>
+  <PrimaryEntity>con_Neshody</PrimaryEntity>
+  <LocalizedNames>
+    <LocalizedName languagecode="1033" description="NCR Process" />
+  </LocalizedNames>
+  <labels>
+    <steplabels id="{4fea36b8-43cf-4ed2-ab1a-674977715e54}">
+      <label languagecode="1033" description="Nahlášeno" />
+    </steplabels>
+    <steplabels id="{937de492-662c-4d03-bb89-55557d35f872}">
+      <label languagecode="1033" description="Název" />
+    </steplabels>
+    <steplabels id="{306c5128-128a-49fe-b835-8f306c27c157}">
+      <label languagecode="1033" description="Popis" />
+    </steplabels>
+    <steplabels id="{8c669320-cf68-43f7-aa5d-2dda95fe65fd}">
+      <label languagecode="1033" description="Stav" />
+    </steplabels>
+    <steplabels id="{f5732e46-a670-4a65-b7f6-e41c65d4933c}">
+      <label languagecode="1033" description="V Řešení" />
+    </steplabels>
+    <steplabels id="{5d0e17ee-ad13-4c9f-b412-43bf8a252780}">
+      <label languagecode="1033" description="Název" />
+    </steplabels>
+    <steplabels id="{ca647804-3226-4874-ad99-e97ccfade83e}">
+      <label languagecode="1033" description="Popis" />
+    </steplabels>
+    <steplabels id="{dc9c7a9e-aa98-4ea4-a315-04b4a468907e}">
+      <label languagecode="1033" description="Odpovědný manažer" />
+    </steplabels>
+    <steplabels id="{dc2dcc4b-348c-4d30-8615-30fc863f039d}">
+      <label languagecode="1033" description="Stav" />
+    </steplabels>
+    <steplabels id="{34803e1a-6173-4aea-9516-521b3bbe7249}">
+      <label languagecode="1033" description="Uzavřeno" />
+    </steplabels>
+    <steplabels id="{18643d17-58a0-4c12-9f75-a2de7c12e3a3}">
+      <label languagecode="1033" description="Název" />
+    </steplabels>
+    <steplabels id="{73a1beb4-7d10-4ccc-b1cc-8d1a86bb3317}">
+      <label languagecode="1033" description="Popis" />
+    </steplabels>
+    <steplabels id="{72d974dd-83b8-4206-ae92-9c866fbb3549}">
+      <label languagecode="1033" description="Odpovědný manažer" />
+    </steplabels>
+    <steplabels id="{16f670d0-62b2-4bd5-84e3-9e04bc2fcb79}">
+      <label languagecode="1033" description="Stav" />
+    </steplabels>
+  </labels>
+</Workflow>

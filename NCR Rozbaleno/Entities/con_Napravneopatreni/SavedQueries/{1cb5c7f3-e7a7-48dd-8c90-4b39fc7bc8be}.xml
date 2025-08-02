@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{1cb5c7f3-e7a7-48dd-8c90-4b39fc7bc8be}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="con_name" select="1" icon="1" preview="1">
+        <row name="result" id="con_napravneopatreniid">
+          <cell name="con_id" width="65" />
+          <cell name="con_name" width="101" />
+          <cell name="con_neshody" width="100" />
+          <cell name="con_terminsplneni" width="125" />
+          <cell name="con_prirazeno" width="100" />
+          <cell name="con_stav" width="100" />
+          <cell name="ownerid" width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="con_napravneopatreni">
+          <attribute name="con_napravneopatreniid" />
+          <attribute name="con_name" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="con_id" />
+          <attribute name="con_terminsplneni" />
+          <attribute name="con_prirazeno" />
+          <attribute name="con_stav" />
+          <attribute name="ownerid" />
+          <attribute name="con_neshody" />
+          <order attribute="con_terminsplneni" descending="false" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Nápravné opatření" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

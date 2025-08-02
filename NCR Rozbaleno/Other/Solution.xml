@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ImportExportXml version="9.2.25061.206" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OrganizationVersion="9.2.25061.206" OrganizationSchemaType="Standard" CRMServerServiceabilityVersion="9.2.25062.00192">
+  <SolutionManifest>
+    <UniqueName>NCR</UniqueName>
+    <LocalizedNames>
+      <LocalizedName description="NCR Management" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions />
+    <Version>1.0.0.1</Version>
+    <Managed>0</Managed>
+    <Publisher>
+      <UniqueName>ConstructSafe</UniqueName>
+      <LocalizedNames>
+        <LocalizedName description="ConstructSafe Inc" languagecode="1033" />
+      </LocalizedNames>
+      <Descriptions />
+      <EMailAddress xsi:nil="true"></EMailAddress>
+      <SupportingWebsiteUrl xsi:nil="true"></SupportingWebsiteUrl>
+      <CustomizationPrefix>con</CustomizationPrefix>
+      <CustomizationOptionValuePrefix>76914</CustomizationOptionValuePrefix>
+      <Addresses>
+        <Address>
+          <AddressNumber>1</AddressNumber>
+          <AddressTypeCode>1</AddressTypeCode>
+          <City xsi:nil="true"></City>
+          <County xsi:nil="true"></County>
+          <Country xsi:nil="true"></Country>
+          <Fax xsi:nil="true"></Fax>
+          <FreightTermsCode xsi:nil="true"></FreightTermsCode>
+          <ImportSequenceNumber xsi:nil="true"></ImportSequenceNumber>
+          <Latitude xsi:nil="true"></Latitude>
+          <Line1 xsi:nil="true"></Line1>
+          <Line2 xsi:nil="true"></Line2>
+          <Line3 xsi:nil="true"></Line3>
+          <Longitude xsi:nil="true"></Longitude>
+          <Name xsi:nil="true"></Name>
+          <PostalCode xsi:nil="true"></PostalCode>
+          <PostOfficeBox xsi:nil="true"></PostOfficeBox>
+          <PrimaryContactName xsi:nil="true"></PrimaryContactName>
+          <ShippingMethodCode>1</ShippingMethodCode>
+          <StateOrProvince xsi:nil="true"></StateOrProvince>
+          <Telephone1 xsi:nil="true"></Telephone1>
+          <Telephone2 xsi:nil="true"></Telephone2>
+          <Telephone3 xsi:nil="true"></Telephone3>
+          <TimeZoneRuleVersionNumber xsi:nil="true"></TimeZoneRuleVersionNumber>
+          <UPSZone xsi:nil="true"></UPSZone>
+          <UTCOffset xsi:nil="true"></UTCOffset>
+          <UTCConversionTimeZoneCode xsi:nil="true"></UTCConversionTimeZoneCode>
+        </Address>
+        <Address>
+          <AddressNumber>2</AddressNumber>
+          <AddressTypeCode>1</AddressTypeCode>
+          <City xsi:nil="true"></City>
+          <County xsi:nil="true"></County>
+          <Country xsi:nil="true"></Country>
+          <Fax xsi:nil="true"></Fax>
+          <FreightTermsCode xsi:nil="true"></FreightTermsCode>
+          <ImportSequenceNumber xsi:nil="true"></ImportSequenceNumber>
+          <Latitude xsi:nil="true"></Latitude>
+          <Line1 xsi:nil="true"></Line1>
+          <Line2 xsi:nil="true"></Line2>
+          <Line3 xsi:nil="true"></Line3>
+          <Longitude xsi:nil="true"></Longitude>
+          <Name xsi:nil="true"></Name>
+          <PostalCode xsi:nil="true"></PostalCode>
+          <PostOfficeBox xsi:nil="true"></PostOfficeBox>
+          <PrimaryContactName xsi:nil="true"></PrimaryContactName>
+          <ShippingMethodCode>1</ShippingMethodCode>
+          <StateOrProvince xsi:nil="true"></StateOrProvince>
+          <Telephone1 xsi:nil="true"></Telephone1>
+          <Telephone2 xsi:nil="true"></Telephone2>
+          <Telephone3 xsi:nil="true"></Telephone3>
+          <TimeZoneRuleVersionNumber xsi:nil="true"></TimeZoneRuleVersionNumber>
+          <UPSZone xsi:nil="true"></UPSZone>
+          <UTCOffset xsi:nil="true"></UTCOffset>
+          <UTCConversionTimeZoneCode xsi:nil="true"></UTCConversionTimeZoneCode>
+        </Address>
+      </Addresses>
+    </Publisher>
+    <RootComponents>
+      <RootComponent type="1" schemaName="con_napravneopatreni" behavior="0" />
+      <RootComponent type="1" schemaName="con_ncrprocess" behavior="0" />
+      <RootComponent type="1" schemaName="con_neshody" behavior="0" />
+      <RootComponent type="1" schemaName="con_uzivatele" behavior="0" />
+      <RootComponent type="29" id="{05c16e9f-de30-f011-8c4d-0022489fd397}" behavior="0" />
+      <RootComponent type="29" id="{0ddcf4c8-e030-f011-8c4d-0022489fd397}" behavior="0" />
+      <RootComponent type="29" id="{51006fad-9038-f011-b4cc-0022489fd397}" behavior="0" />
+      <RootComponent type="29" id="{56156e25-c043-f011-877a-0022489fd397}" behavior="0" />
+      <RootComponent type="29" id="{628e8b22-5a44-f011-877a-0022489fd397}" behavior="0" />
+      <RootComponent type="29" id="{7ae0bca2-3236-f011-8c4d-0022489fd397}" behavior="0" />
+      <RootComponent type="29" id="{7d029b4a-4636-f011-8c4d-0022489fd397}" behavior="0" />
+      <RootComponent type="29" id="{84ffb939-0737-f011-8c4d-0022489fd397}" behavior="0" />
+      <RootComponent type="29" id="{92ac6c8c-253a-f011-b4cc-0022489fd397}" behavior="0" />
+      <RootComponent type="29" id="{98fe6bbe-5236-f011-8c4d-0022489fd397}" behavior="0" />
+      <RootComponent type="29" id="{aef54601-5e44-f011-877a-0022489fd397}" behavior="0" />
+      <RootComponent type="29" id="{f6bedeed-df30-f011-8c4d-0022489fd397}" behavior="0" />
+      <RootComponent type="300" schemaName="con_opatenvternu_e0244" behavior="0" />
+      <RootComponent type="300" schemaName="con_souhrnneshody_1ec46" behavior="0" />
+      <RootComponent type="61" schemaName="ActivityFeedsConfig.svg" behavior="0" />
+      <RootComponent type="61" schemaName="ActivityFeedsRules.svg" behavior="0" />
+      <RootComponent type="61" schemaName="con_formlogic" behavior="0" />
+      <RootComponent type="61" schemaName="con_klonovatNeshodu" behavior="0" />
+      <RootComponent type="61" schemaName="con_openCustomPage" behavior="0" />
+      <RootComponent type="61" schemaName="con_subgrid_logic" behavior="0" />
+      <RootComponent type="62" schemaName="con_RizenineshodNCR" behavior="0" />
+      <RootComponent type="80" schemaName="con_RizenineshodNCR" behavior="0" />
+      <RootComponent type="9" schemaName="con_nrc" behavior="0" />
+      <RootComponent type="9" schemaName="con_role" behavior="0" />
+      <RootComponent type="9" schemaName="con_stavopatreni" behavior="0" />
+      <RootComponent type="9" schemaName="con_typneshody" behavior="0" />
+      <RootComponent type="9" schemaName="con_zavaznostdopadu" behavior="0" />
+      <RootComponent type="9" schemaName="con_zavaznosturazu" behavior="0" />
+    </RootComponents>
+    <MissingDependencies>
+      <MissingDependency>
+        <Required type="61" schemaName="ActivityFeedsConfig.svg" displayName="ActivityFeedsConfig.svg" solution="PowerPlatformEnvironmentSettings (1.1.1.1579)">
+          <package appName="PowerPlatformEnvironmentSettingsApp" version="1.1.1.1579">PowerPlatformEnvironmentSettingsApp_Anchor (1.1.1.1579)</package>
+        </Required>
+        <Dependent type="1" schemaName="con_napravneopatreni" displayName="Nápravné opatření" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="61" schemaName="ActivityFeedsConfig.svg" displayName="ActivityFeedsConfig.svg" solution="PowerPlatformEnvironmentSettings (1.1.1.1579)">
+          <package appName="PowerPlatformEnvironmentSettingsApp" version="1.1.1.1579">PowerPlatformEnvironmentSettingsApp_Anchor (1.1.1.1579)</package>
+        </Required>
+        <Dependent type="61" schemaName="ActivityFeedsConfig.svg" displayName="ActivityFeedsConfig.svg" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="61" schemaName="ActivityFeedsRules.svg" displayName="ActivityFeedsRules.svg" solution="PowerPlatformEnvironmentSettings (1.1.1.1579)">
+          <package appName="PowerPlatformEnvironmentSettingsApp" version="1.1.1.1579">PowerPlatformEnvironmentSettingsApp_Anchor (1.1.1.1579)</package>
+        </Required>
+        <Dependent type="1" schemaName="con_neshody" displayName="Neshody" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="61" schemaName="ActivityFeedsRules.svg" displayName="ActivityFeedsRules.svg" solution="PowerPlatformEnvironmentSettings (1.1.1.1579)">
+          <package appName="PowerPlatformEnvironmentSettingsApp" version="1.1.1.1579">PowerPlatformEnvironmentSettingsApp_Anchor (1.1.1.1579)</package>
+        </Required>
+        <Dependent type="61" schemaName="ActivityFeedsRules.svg" displayName="ActivityFeedsRules.svg" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="61" schemaName="msdyn_/Images/AppModule_Default_Icon.png" displayName="msdyn_/Images/AppModule_Default_Icon.png" solution="AppModuleWebResources (2.5)">
+          <package appName="AppModule Web Resources Package" version="2.5">AppModuleWebResources (2.5)</package>
+        </Required>
+        <Dependent type="80" schemaName="con_RizenineshodNCR" displayName="Řízení neshod (NCR)" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="66" schemaName="Microsoft.PowerApps.PowerAppsOneGrid" displayName="Microsoft.PowerApps.PowerAppsOneGrid" solution="BaseCustomControlsCore (9.0.2506.1009)">
+          <package appName="Base Custom Controls" version="9.0.2506.1009">BaseCustomControlsCore (9.0.2506.1009)</package>
+        </Required>
+        <Dependent type="60" displayName="Information" parentDisplayName="Neshody" id="{dcfb69df-7bf6-4206-8a12-684f0d56e98b}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="botcomponentcollection" displayName="bot_componentcollection_appcopilot_v1" solution="msdyn_AppCopilotPVABotComponentCollection (9.1.2025043.250416150)" id.schemaname="bot_componentcollection_appcopilot_v1">
+          <package appName="PowerAppsAppCopilotPVABotApp Package" version="9.1.2025043.250416150">PowerAppsAppCopilotPVABotApp_Anchor (9.1.2025043.250416150)</package>
+        </Required>
+        <Dependent type="bot_botcomponentcollection" displayName="botcomponentcollectionid.schemaname=bot_componentcollection_appcopilot_v1,botid.schemaname=cr34c_bot779100" id.botcomponentcollectionid.schemaname="bot_componentcollection_appcopilot_v1" id.botid.schemaname="cr34c_bot779100" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="SettingDefinition" displayName="AppChannel" solution="msdyn_AppFrameworkInfraExtensions (1.0.0.14)" id.uniquename="AppChannel">
+          <package appName="PowerAppsAppFramework Package" version="1.0.0.19">PowerAppsAppFramework_Anchor (1.0.0.19)</package>
+        </Required>
+        <Dependent type="AppSetting" displayName="parentappmoduleid.uniquename=con_RizenineshodNCR,settingdefinitionid.uniquename=AppChannel" id.parentappmoduleid.uniquename="con_RizenineshodNCR" id.settingdefinitionid.uniquename="AppChannel" />
+      </MissingDependency>
+    </MissingDependencies>
+  </SolutionManifest>
+</ImportExportXml>

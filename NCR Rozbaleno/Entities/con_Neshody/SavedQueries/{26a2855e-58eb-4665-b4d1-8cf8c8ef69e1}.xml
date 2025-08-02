@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{26a2855e-58eb-4665-b4d1-8cf8c8ef69e1}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="con_nazev" select="1" icon="1" preview="1">
+        <row name="result" id="con_neshodyid">
+          <cell name="con_id" width="100" />
+          <cell name="con_nazev" width="121" />
+          <cell name="con_typ" width="100" />
+          <cell name="con_stav" width="100" />
+          <cell name="createdon" width="125" />
+          <cell name="con_odpovednymanazer" width="157" />
+          <cell name="ownerid" width="100" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="con_neshody">
+          <attribute name="con_neshodyid" />
+          <attribute name="con_nazev" />
+          <attribute name="createdon" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="con_id" />
+          <attribute name="ownerid" />
+          <attribute name="con_typ" />
+          <attribute name="con_stav" />
+          <order attribute="createdon" descending="false" />
+          <attribute name="con_odpovednymanazer" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Neshody" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

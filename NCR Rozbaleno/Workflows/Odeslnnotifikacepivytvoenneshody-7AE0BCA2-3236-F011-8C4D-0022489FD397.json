@@ -1,0 +1,130 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "con_sharedcommondataserviceforapps_09290"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      },
+      "shared_office365": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "con_sharedoffice365_643a8"
+        },
+        "api": {
+          "name": "shared_office365"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "When_a_row_is_added,_modified_or_deleted": {
+          "metadata": {
+            "operationMetadataId": "0d48907b-7a27-4918-92f2-64b9972ca2bb"
+          },
+          "type": "OpenApiConnectionWebhook",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "SubscribeWebhookTrigger",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "subscriptionRequest/message": 1,
+              "subscriptionRequest/entityname": "con_neshody",
+              "subscriptionRequest/scope": 4
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      },
+      "actions": {
+        "Get_Neshody": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "43bed51b-5baa-4287-896c-0c83122947ff"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "GetItem",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "con_neshodies",
+              "recordId": "@triggerOutputs()?['body/con_neshodyid']"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Get_Manager": {
+          "runAfter": {
+            "Get_Neshody": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "6872742e-6386-487e-8187-cf2f02b0ffd5"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "GetItem",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "con_uzivateles",
+              "recordId": "@outputs('Get_Neshody')?['body/_con_odpovednymanazer_value']"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Vytvoření": {
+          "runAfter": {
+            "Get_Manager": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "4675f0c3-c726-4943-924e-8c1e3c004c20"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_office365",
+              "operationId": "SendEmailV2",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365"
+            },
+            "parameters": {
+              "emailMessage/To": "@outputs('Get_Manager')?['body/con_email']",
+              "emailMessage/Subject": "Nová neshoda: @{outputs('Get_Neshody')?['body/con_nazev']}",
+              "emailMessage/Body": "<p>Dobrý den,<br>\nByla vám přiřazena neshoda @{outputs('Get_Neshody')?['body/con_nazev']}<br>\nDatum nahlášení:  @{outputs('Get_Neshody')?['body/modifiedon']}<br>\nProsím přihlaste se do aplikace NCR Management pro více detailů a zahajte řešení.<br>\n<br>\n<a href=\"https://org8966d7d1.crm4.dynamics.com/main.aspx?appid=17643591-a831-f011-8c4d-0022489fd397&amp;pagetype=entityrecord&amp;etn=con_neshody&amp;id=@{outputs('Get_Neshody')?['body/con_neshodyid']}\">Otevřít neshodu v aplikaci</a> <br>\n<br>\nHezký den přeje &nbsp;<br>\ntým NCR Management</p>",
+              "emailMessage/Importance": "Normal"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      }
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}

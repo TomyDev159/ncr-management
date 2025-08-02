@@ -1,0 +1,483 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{dcfb69df-7bf6-4206-8a12-684f0d56e98b}</formid>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form headerdensity="HighReadOnlyValues">
+      <tabs>
+        <tab verticallayout="true" id="{5bcfcad5-6a01-4868-ad0e-0e8d8f4e173a}" IsUserDefined="1" expanded="true" name="main" contenttype="cardSections">
+          <labels>
+            <label description="Základní údaje" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="50%">
+              <sections>
+                <section showlabel="true" showbar="false" IsUserDefined="0" id="{9c7761a3-381e-4eb9-b5a6-58af44f69813}" columns="1" name="zakladni_udaje" celllabelposition="Left">
+                  <labels>
+                    <label description="Základní údaje" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{ccfd2203-694f-4ff1-89e4-b1eb8f01a9e8}" visible="true">
+                        <labels>
+                          <label description="Název" languagecode="1033" />
+                        </labels>
+                        <control id="con_nazev" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="con_nazev" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{2cf60f04-d6d8-4848-b122-27ac8734d3e2}" locklevel="1" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Typ" languagecode="1033" />
+                        </labels>
+                        <control id="con_typ" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="con_typ" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{1fc447c0-c858-4039-bacf-6a640e901b10}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Popis" languagecode="1033" />
+                        </labels>
+                        <control id="con_popis" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="con_popis" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{67a4ab48-6e8a-4013-b835-fa98939bb615}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Vytvořeno" languagecode="1033" />
+                        </labels>
+                        <control id="createdon" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="createdon" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{d3f9a727-6c1c-4627-830d-6f33835bb652}" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Vlastník" languagecode="1033" />
+                        </labels>
+                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" disabled="true" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="prirazeni_stav" id="7fcc2667-c473-45dd-accb-8643ff37d0e5" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Přiřazení a stav" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row />
+                    <row>
+                      <cell id="{a9002aa1-d026-4d28-b832-689278ab1bf3}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Odpovědný manažer" languagecode="1033" />
+                        </labels>
+                        <control id="con_odpovednymanazer" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="con_odpovednymanazer" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{35dac5c2-1e11-4a7d-b09d-27416c086554}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Stav" languagecode="1033" />
+                        </labels>
+                        <control id="con_stav" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="con_stav" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+            <column width="50%">
+              <sections>
+                <section name="prilohy" id="af6d8c0e-a449-4da9-a28e-c1dfb28b0c0f" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Top" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Přílohy" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row />
+                    <row>
+                      <cell locklevel="0" id="{55454b5b-dc3e-4202-a83f-1e2125e47303}" rowspan="15" colspan="1">
+                        <labels>
+                          <label description="Note Text" languagecode="1033" />
+                        </labels>
+                        <control id="notescontrol" classid="{06375649-C143-495E-A496-C962E5B4488E}" disabled="false">
+                          <parameters>
+                            <UClientUniqueName>Prilohy</UClientUniqueName>
+                            <UClientDefaultLayoutOption>roomy</UClientDefaultLayoutOption>
+                            <UClientHideRecentDates>false</UClientHideRecentDates>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab name="Specificke_udaje" id="d15c2a68-51c2-4629-a428-3784dc4072f4" IsUserDefined="0" locklevel="0" showlabel="true" expanded="false">
+          <labels>
+            <label description="Specifické údaje" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="tab_2_section_1" id="36b3c2b6-4c09-4228-a39b-3d01ea2d14b5" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="New Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell locklevel="0" id="{264f8be9-cd7c-48af-9be3-b3013c012b24}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{870a9ea4-f2e5-4776-89a4-d91421277143}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Porušený procesního kroku" languagecode="1033" />
+                        </labels>
+                        <control id="con_porusenyprocesnikrok" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="con_porusenyprocesnikrok" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{82be7efb-5456-44dd-a040-413e92846277}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Závažnost dopadu" languagecode="1033" />
+                        </labels>
+                        <control id="con_zavaznostdopadu" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="con_zavaznostdopadu" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{9865d8b6-eeb9-4dab-8987-b9bde9bcf6c4}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Poznámka" languagecode="1033" />
+                        </labels>
+                        <control id="con_poznamka" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="con_poznamka" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{8b439b1d-dfd1-4796-b366-c36bbe968540}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Zjištěná specifikace" languagecode="1033" />
+                        </labels>
+                        <control id="con_zjistenaspecifikace" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="con_zjistenaspecifikace" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{4187f159-fdf4-4749-8951-e78b5c5c5bec}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Požadovaná specifikace" languagecode="1033" />
+                        </labels>
+                        <control id="con_pozadovanaspecifikace" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="con_pozadovanaspecifikace" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{861d0089-e09b-4a39-9a96-afa4b71aa30e}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Závažnost úrazu" languagecode="1033" />
+                        </labels>
+                        <control id="con_zavaznosturazu" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="con_zavaznosturazu" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab name="napravna_opatreni" id="61c60653-e68e-4d9e-8b2d-3da4b1b7ecc0" IsUserDefined="0" locklevel="0" showlabel="true" expanded="false">
+          <labels>
+            <label description="Nápravná opatření" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section name="opatreni" id="31daef20-18c7-48c1-a44e-c509b713ea67" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Opatření" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row />
+                    <row>
+                      <cell locklevel="0" id="{c50621af-0b86-4f19-a0b0-adefaf65550d}" rowspan="5" colspan="1" auto="false" showlabel="false">
+                        <labels>
+                          <label description="Nápravná opatření" languagecode="1033" />
+                        </labels>
+                        <control indicationOfSubgrid="true" id="Subgrid_napravna_opatreni" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" uniqueid="{974b648f-3fbd-4e06-af00-d1b36361856f}">
+                          <parameters>
+                            <RecordsPerPage>5</RecordsPerPage>
+                            <AutoExpand>Fixed</AutoExpand>
+                            <EnableQuickFind>true</EnableQuickFind>
+                            <EnableViewPicker>true</EnableViewPicker>
+                            <EnableChartPicker>false</EnableChartPicker>
+                            <ChartGridMode>Grid</ChartGridMode>
+                            <RelationshipName>con_napravneopatreni_Neshody_con_neshody</RelationshipName>
+                            <TargetEntityType>con_napravneopatreni</TargetEntityType>
+                            <ViewId>{1cb5c7f3-e7a7-48dd-8c90-4b39fc7bc8be}</ViewId>
+                            <ViewIds>{1CB5C7F3-E7A7-48DD-8C90-4B39FC7BC8BE},{3D8D1381-C849-F011-877A-0022489FD397}</ViewIds>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{ab2241d7-6c8b-4203-92dc-eee7fa77f758}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{fd6eb5eb-cf76-47a7-9a27-ac3f3dd4b53e}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{433fabf0-6807-4673-973d-6f64347ac2fe}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{f7d4fc9b-1969-4bf6-a87d-4c4ab499c9bd}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{95bb55e2-b619-4082-89f9-eb1534554421}" locklevel="0" colspan="1" rowspan="1">
+              <labels>
+                <label description="ID" languagecode="1033" />
+              </labels>
+              <control id="header_con_id" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="con_id" disabled="false" />
+            </cell>
+            <cell locklevel="0" id="{d2abc236-0e50-4080-8e09-c34c30b62960}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell locklevel="0" id="{7d97c1b2-5f6c-4b22-9f8f-e8cb01ae56fb}">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{bce0f48b-dffc-42d5-bbbf-7ffc717c7a37}" locklevel="0" colspan="1" rowspan="1">
+              <labels>
+                <label description="Typ" languagecode="1033" />
+              </labels>
+              <control id="header_con_typ" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="con_typ" disabled="false" />
+            </cell>
+            <cell id="{5d1b7b17-0230-466c-b9ed-48e56b34e379}" locklevel="0" colspan="1" rowspan="1">
+              <labels>
+                <label description="Odpovědný manažer" languagecode="1033" />
+              </labels>
+              <control id="header_con_odpovednymanazer" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="con_odpovednymanazer" disabled="false" />
+            </cell>
+            <cell id="{2c946952-2028-4d64-a1b3-ea5fb138483b}" locklevel="0" colspan="1" rowspan="1">
+              <labels>
+                <label description="Stav" languagecode="1033" />
+              </labels>
+              <control id="header_con_stav" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="con_stav" disabled="false" />
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{ba71d352-90db-444f-b310-3464901eb60e}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{90fc2fea-8b30-444b-88bb-33f8c29f31c1}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{198b7836-7550-4980-9d3e-5c0b7fd9d065}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{a27571b5-d766-4db9-a124-9a1a92ef2942}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <DisplayConditions Order="0" FallbackForm="true">
+        <Everyone />
+      </DisplayConditions>
+      <formLibraries>
+        <Library name="con_formlogic" libraryUniqueId="{81cf7a29-9300-40a8-bc76-8f2d50ba0026}" />
+        <Library name="con_subgrid_logic" libraryUniqueId="{a7503e32-4fec-4a97-bdfb-b267b21820de}" />
+      </formLibraries>
+      <events>
+        <event name="onchange" application="false" active="false" attribute="con_typ">
+          <Handlers>
+            <Handler functionName="onTypeChange" libraryName="con_formlogic" handlerUniqueId="{78450f32-0699-4aeb-a48d-2692252373ea}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+          <dependencies>
+            <dependency id="con_typ" />
+          </dependencies>
+        </event>
+        <event name="onload" application="false" active="false">
+          <Handlers>
+            <Handler functionName="onTypeChange" libraryName="con_formlogic" handlerUniqueId="{1d411290-e4ec-46a0-8601-2af5df7a84d5}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+          <dependencies>
+            <dependency id="con_typ" />
+          </dependencies>
+        </event>
+        <event name="onrecordselect" application="false" active="false" relationship="" control="Subgrid_napravna_opatreni">
+          <Handlers>
+            <Handler functionName="onCorrectiveActionSelect" libraryName="con_subgrid_logic" handlerUniqueId="{b2bff1db-ab80-4dc9-8d61-7480868a9ee8}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+        </event>
+      </events>
+      <controlDescriptions>
+        <controlDescription forControl="{974b648f-3fbd-4e06-af00-d1b36361856f}">
+          <customControl id="{E7A81278-8635-4D9E-8D4D-59480B391C5B}">
+            <parameters />
+          </customControl>
+          <customControl formFactor="1" name="Microsoft.PowerApps.PowerAppsOneGrid">
+            <parameters>
+              <data-set name="Items">
+                <ViewId>{1cb5c7f3-e7a7-48dd-8c90-4b39fc7bc8be}</ViewId>
+                <TargetEntityType>con_napravneopatreni</TargetEntityType>
+                <IsUserView>false</IsUserView>
+                <EnableViewPicker>true</EnableViewPicker>
+                <RelationshipName>con_napravneopatreni_Neshody_con_neshody</RelationshipName>
+                <FilteredViewIds>{1CB5C7F3-E7A7-48DD-8C90-4B39FC7BC8BE},{3D8D1381-C849-F011-877A-0022489FD397}</FilteredViewIds>
+              </data-set>
+              <EnableEditing type="Enum" static="true">yes</EnableEditing>
+              <DisableChildItemsEditing type="Enum" static="true">no</DisableChildItemsEditing>
+              <EnableFiltering type="Enum" static="true">yes</EnableFiltering>
+              <EnableSorting type="Enum" static="true">yes</EnableSorting>
+              <EnableGrouping type="Enum" static="true">no</EnableGrouping>
+              <EnableAggregation type="Enum" static="true">no</EnableAggregation>
+              <EnableColumnMoving type="Enum" static="true">yes</EnableColumnMoving>
+              <EnableMultipleSelection type="Enum" static="true">no</EnableMultipleSelection>
+              <EnableRangeSelection type="Enum" static="true">yes</EnableRangeSelection>
+              <EnableJumpBar type="Enum" static="true">no</EnableJumpBar>
+              <EnablePagination type="Enum" static="true">yes</EnablePagination>
+              <EnableDropdownColor type="Enum" static="true">yes</EnableDropdownColor>
+              <EnableStatusIcons type="Enum" static="true">no</EnableStatusIcons>
+              <EnableTypeIcons type="Enum" static="true">no</EnableTypeIcons>
+              <NavigationTypesAllowed type="Enum" static="true">all</NavigationTypesAllowed>
+              <ReflowBehavior type="Enum" static="true">Reflow</ReflowBehavior>
+              <ShowAvatar type="Enum" static="true">yes</ShowAvatar>
+              <ShowFooter type="Enum" static="true">yes</ShowFooter>
+              <ShowColumnHeaders type="Enum" static="true">yes</ShowColumnHeaders>
+              <ContextualLookupColumnFilters type="Enum" static="true">yes</ContextualLookupColumnFilters>
+              <LookupFilterBeginsWith type="Enum" static="true">no</LookupFilterBeginsWith>
+              <UseFirstColumnForLookupEdits type="Enum" static="true">no</UseFirstColumnForLookupEdits>
+              <DateTimeFormat type="Enum" static="true">none</DateTimeFormat>
+              <DateOnlyFormat type="Enum" static="true">none</DateOnlyFormat>
+              <EnableStatusColumn type="Enum" static="true">no</EnableStatusColumn>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="Microsoft.PowerApps.PowerAppsOneGrid">
+            <parameters>
+              <data-set name="Items">
+                <ViewId>{1cb5c7f3-e7a7-48dd-8c90-4b39fc7bc8be}</ViewId>
+                <TargetEntityType>con_napravneopatreni</TargetEntityType>
+                <IsUserView>false</IsUserView>
+                <EnableViewPicker>true</EnableViewPicker>
+                <RelationshipName>con_napravneopatreni_Neshody_con_neshody</RelationshipName>
+                <FilteredViewIds>{1CB5C7F3-E7A7-48DD-8C90-4B39FC7BC8BE},{3D8D1381-C849-F011-877A-0022489FD397}</FilteredViewIds>
+              </data-set>
+              <EnableEditing type="Enum" static="true">yes</EnableEditing>
+              <DisableChildItemsEditing type="Enum" static="true">no</DisableChildItemsEditing>
+              <EnableFiltering type="Enum" static="true">yes</EnableFiltering>
+              <EnableSorting type="Enum" static="true">yes</EnableSorting>
+              <EnableGrouping type="Enum" static="true">no</EnableGrouping>
+              <EnableAggregation type="Enum" static="true">no</EnableAggregation>
+              <EnableColumnMoving type="Enum" static="true">yes</EnableColumnMoving>
+              <EnableMultipleSelection type="Enum" static="true">no</EnableMultipleSelection>
+              <EnableRangeSelection type="Enum" static="true">yes</EnableRangeSelection>
+              <EnableJumpBar type="Enum" static="true">no</EnableJumpBar>
+              <EnablePagination type="Enum" static="true">yes</EnablePagination>
+              <EnableDropdownColor type="Enum" static="true">yes</EnableDropdownColor>
+              <EnableStatusIcons type="Enum" static="true">no</EnableStatusIcons>
+              <EnableTypeIcons type="Enum" static="true">no</EnableTypeIcons>
+              <NavigationTypesAllowed type="Enum" static="true">all</NavigationTypesAllowed>
+              <ReflowBehavior type="Enum" static="true">Reflow</ReflowBehavior>
+              <ShowAvatar type="Enum" static="true">yes</ShowAvatar>
+              <ShowFooter type="Enum" static="true">yes</ShowFooter>
+              <ShowColumnHeaders type="Enum" static="true">yes</ShowColumnHeaders>
+              <ContextualLookupColumnFilters type="Enum" static="true">yes</ContextualLookupColumnFilters>
+              <LookupFilterBeginsWith type="Enum" static="true">no</LookupFilterBeginsWith>
+              <UseFirstColumnForLookupEdits type="Enum" static="true">no</UseFirstColumnForLookupEdits>
+              <DateTimeFormat type="Enum" static="true">none</DateTimeFormat>
+              <DateOnlyFormat type="Enum" static="true">none</DateOnlyFormat>
+              <EnableStatusColumn type="Enum" static="true">no</EnableStatusColumn>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="Microsoft.PowerApps.PowerAppsOneGrid">
+            <parameters>
+              <data-set name="Items">
+                <ViewId>{1cb5c7f3-e7a7-48dd-8c90-4b39fc7bc8be}</ViewId>
+                <TargetEntityType>con_napravneopatreni</TargetEntityType>
+                <IsUserView>false</IsUserView>
+                <EnableViewPicker>true</EnableViewPicker>
+                <RelationshipName>con_napravneopatreni_Neshody_con_neshody</RelationshipName>
+                <FilteredViewIds>{1CB5C7F3-E7A7-48DD-8C90-4B39FC7BC8BE},{3D8D1381-C849-F011-877A-0022489FD397}</FilteredViewIds>
+              </data-set>
+              <EnableEditing type="Enum" static="true">yes</EnableEditing>
+              <DisableChildItemsEditing type="Enum" static="true">no</DisableChildItemsEditing>
+              <EnableFiltering type="Enum" static="true">yes</EnableFiltering>
+              <EnableSorting type="Enum" static="true">yes</EnableSorting>
+              <EnableGrouping type="Enum" static="true">no</EnableGrouping>
+              <EnableAggregation type="Enum" static="true">no</EnableAggregation>
+              <EnableColumnMoving type="Enum" static="true">yes</EnableColumnMoving>
+              <EnableMultipleSelection type="Enum" static="true">no</EnableMultipleSelection>
+              <EnableRangeSelection type="Enum" static="true">yes</EnableRangeSelection>
+              <EnableJumpBar type="Enum" static="true">no</EnableJumpBar>
+              <EnablePagination type="Enum" static="true">yes</EnablePagination>
+              <EnableDropdownColor type="Enum" static="true">yes</EnableDropdownColor>
+              <EnableStatusIcons type="Enum" static="true">no</EnableStatusIcons>
+              <EnableTypeIcons type="Enum" static="true">no</EnableTypeIcons>
+              <NavigationTypesAllowed type="Enum" static="true">all</NavigationTypesAllowed>
+              <ReflowBehavior type="Enum" static="true">Reflow</ReflowBehavior>
+              <ShowAvatar type="Enum" static="true">yes</ShowAvatar>
+              <ShowFooter type="Enum" static="true">yes</ShowFooter>
+              <ShowColumnHeaders type="Enum" static="true">yes</ShowColumnHeaders>
+              <ContextualLookupColumnFilters type="Enum" static="true">yes</ContextualLookupColumnFilters>
+              <LookupFilterBeginsWith type="Enum" static="true">no</LookupFilterBeginsWith>
+              <UseFirstColumnForLookupEdits type="Enum" static="true">no</UseFirstColumnForLookupEdits>
+              <DateTimeFormat type="Enum" static="true">none</DateTimeFormat>
+              <DateOnlyFormat type="Enum" static="true">none</DateOnlyFormat>
+              <EnableStatusColumn type="Enum" static="true">no</EnableStatusColumn>
+            </parameters>
+          </customControl>
+        </controlDescription>
+      </controlDescriptions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

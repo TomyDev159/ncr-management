@@ -1,0 +1,144 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "con_sharedcommondataserviceforapps_09290"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "When_a_row_is_added,_modified_or_deleted": {
+          "metadata": {
+            "operationMetadataId": "280761a0-baf6-4efb-9dce-6835f527c9f1"
+          },
+          "type": "OpenApiConnectionWebhook",
+          "inputs": {
+            "parameters": {
+              "subscriptionRequest/message": 3,
+              "subscriptionRequest/entityname": "con_neshody",
+              "subscriptionRequest/scope": 4,
+              "subscriptionRequest/filteringattributes": "con_stav",
+              "subscriptionRequest/name": "aef54601-5e44-f011-877a-0022489fd397"
+            },
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "SubscribeWebhookTrigger",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      },
+      "actions": {
+        "Stav_-_Uzavřeno": {
+          "actions": {
+            "NCR_Process": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "cb3de416-1ef7-448a-84d7-f423c429f747"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "parameters": {
+                  "entityName": "con_ncrprocesses",
+                  "$filter": "bpf_con_neshodyid/con_neshodyid eq '@{triggerOutputs()?['body/con_neshodyid']}'",
+                  "$top": 1
+                },
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps",
+                  "operationId": "ListRecords",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "ProcessStage": {
+              "runAfter": {
+                "NCR_Process": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "eee0e7f5-cd29-4e78-b3ac-33fee09e6fdf"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "parameters": {
+                  "entityName": "processstages",
+                  "$filter": "_processid_value eq '@{first(body('NCR_Process')?['value'])?['_processid_value']}' and stagename eq 'Uzavřeno'",
+                  "$top": 1
+                },
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps",
+                  "operationId": "ListRecords",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "Update_a_row": {
+              "runAfter": {
+                "ProcessStage": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "9fa6a726-43a2-40a8-b042-145054f11a1f"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "parameters": {
+                  "entityName": "con_ncrprocesses",
+                  "recordId": "@first(body('NCR_Process')?['value'])?['businessprocessflowinstanceid']\r\n",
+                  "item/activestageid@odata.bind": "@concat('/processstages(', first(body('ProcessStage')?['value'])?['processstageid'], ')')\n\n"
+                },
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps",
+                  "operationId": "UpdateOnlyRecord",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            }
+          },
+          "runAfter": {},
+          "expression": {
+            "and": [
+              {
+                "equals": [
+                  "@triggerOutputs()?['body/con_stav']",
+                  769140002
+                ]
+              }
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "77e84d5c-fed7-4c25-97ee-9147b64885a7"
+          },
+          "type": "If"
+        }
+      },
+      "outputs": {}
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}

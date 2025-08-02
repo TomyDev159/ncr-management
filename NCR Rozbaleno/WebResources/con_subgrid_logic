@@ -1,0 +1,96 @@
+function onCorrectiveActionSelect(executionContext) {
+    // Získání zdroje události
+    var grid = executionContext.getEventSource && executionContext.getEventSource();
+
+    // Získání vybraných řádků z gridu
+    var selectedRows = grid && grid.getSelectedRows ? grid.getSelectedRows() : null;
+    var entity = null;
+
+    // Vybere první vybraný řádek a získá jeho entity data
+    if (selectedRows && selectedRows.getLength && selectedRows.getLength() > 0) {
+        var selectedRow = selectedRows.get(0);
+        if (selectedRow.getData && selectedRow.getData()) {
+            entity = selectedRow.getData().getEntity();
+        }
+    }
+
+    console.log("entity:", entity);
+
+    // Pokud není entity data, vypíšu chybu uživateli a ukončím funkci
+    if (!entity) {
+        Xrm.Navigation.openAlertDialog({
+            title: "Chyba",
+            text: "Nepodařilo se získat data z vybraného řádku."
+        });
+        return;
+    }
+
+    // Získání stavu opatření
+    var stavAttr = entity.attributes.getByName("con_stav");
+    // Pozor! getText() vrací popisek hodnoty (nikoli kód)
+    var stav = stavAttr ? stavAttr.getText() : "Neznámý";
+
+    // Získání termínu splnění
+    // getValue() vrací hodnotu pole typu Date
+    var terminAttr = entity.attributes.getByName("con_terminsplneni");
+    var termin = terminAttr ? terminAttr.getValue() : null;
+
+    // Ověření, že termín je vyplněný
+    if (!termin) {
+        Xrm.Navigation.openAlertDialog({
+            title: "Chybí termín",
+            text: "Toto opatření nemá vyplněný termín dokončení."
+        });
+        return;
+    }
+
+    // Příprava datumu pro porovnání (dnes a termín na 0:00, aby se nepočítal čas)
+    var dnes = new Date();
+    dnes.setHours(0, 0, 0, 0);
+
+    var terminDatum = new Date(termin);
+    terminDatum.setHours(0, 0, 0, 0);
+
+    // Výpočet rozdílu v milisekundách (kolik zbývá do termínu)
+    var rozdilMS = terminDatum - dnes;
+
+    // Pokud je termín v minulosti, vypíšu varování s počtem dní po termínu
+    if (rozdilMS < 0) {
+        Xrm.Navigation.openAlertDialog({
+            title: "Termín prošel",
+            text: `Toto opatření mělo být splněno ${Math.ceil(-rozdilMS / (1000 * 60 * 60 * 24))} dní zpět.`
+        });
+        return;
+    }
+
+    // Pokud je termín právě dnes, informuji uživatele
+    var rozdilDni = Math.ceil(rozdilMS / (1000 * 60 * 60 * 24));
+    if (rozdilDni === 0) {
+        Xrm.Navigation.openAlertDialog({
+            title: "Termín dnes",
+            text: "Toto opatření má termín splnění dnes."
+        });
+        return;
+    }
+
+    // Funkce pro správný český tvar slova „den“ podle počtu dní
+    function getDayLabel(days) {
+        if (days === 1) return "den";
+        if (days > 1 && days < 5) return "dny";
+        return "dní";
+    }
+
+    // Výchozí hláška pro uživatele (kolik dní zbývá)
+    let hlaska = `Do termínu zbývá ${rozdilDni} ${getDayLabel(rozdilDni)}.`;
+
+    // Pokud je stav „Navrženo“ a do termínu zbývají max 2 dny, vypíšu varování
+    if (stav === "Navrženo" && rozdilDni <= 2) {
+        hlaska = `VAROVÁNÍ: Opatření je stále ve stavu „Navrženo“ a do termínu zbývá ${rozdilDni} ${getDayLabel(rozdilDni)}.`;
+    }
+
+    // Závěrečné zobrazení informace uživateli
+    Xrm.Navigation.openAlertDialog({
+        title: "Informace o opatření",
+        text: hlaska
+    });
+}

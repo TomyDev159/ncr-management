@@ -1,0 +1,22 @@
+function openCustomPage(selectedIds) {
+    if (!selectedIds || selectedIds.length === 0) {  // kontrola, zda je selectedIds definované a není prázdné
+        Xrm.Navigation.openAlertDialog({ text: "Prosím, vyberte záznam pro zobrazení souhrnu." });
+        return;
+    }
+    var recordId = selectedIds[0];
+    if (!recordId || typeof recordId !== "string" || recordId.trim() === "") {   // kontrola, zda je recordId platný
+        Xrm.Navigation.openAlertDialog({ text: "ID záznamu je neplatné." });
+        return;
+    }
+    Xrm.Navigation.navigateTo({        // otevře custom page
+        pageType: "custom",
+        name: "con_souhrnneshody_1ec46", // název custom page
+        entityId: recordId
+    }, {
+        target: 2,       // otevře custom page v novém okně
+        position: 1,    
+        width: { value: 80, unit: "%" },
+        height: { value: 80, unit: "%" }
+    });
+}
+

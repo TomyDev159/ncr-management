@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RibbonDiffXml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CustomActions>
+    <CustomAction Id="con.con_neshody.Button2.Button.CustomAction" Location="Mscrm.Form.con_neshody.MainTab.Save.Controls._children" Sequence="15">
+      <CommandUIDefinition>
+        <Button Command="con.con_neshody.Command1.klonovat" Id="con.con_neshody.Button2.Button" LabelText="$LocLabels:con.con_neshody.Button2.Button.LabelText" Sequence="15" TemplateAlias="o1" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="con.Mscrm.HomepageGrid.con_neshody.Edit.CustomAction" Location="Mscrm.HomepageGrid.con_neshody.MainTab.Management.Controls._children" Sequence="20">
+      <CommandUIDefinition>
+        <Button Alt="$LocLabels:Mscrm.HomepageGrid.con_neshody.Edit.Alt" Command="Mscrm.EditSelectedRecord" Id="Mscrm.HomepageGrid.con_neshody.Edit" Image32by32="/_imgs/ribbon/edit32.png" Image16by16="/_imgs/ribbon/Edit_16.png" LabelText="$LocLabels:Mscrm.HomepageGrid.con_neshody.Edit.LabelText" Sequence="20" TemplateAlias="o1" ToolTipTitle="$LocLabels:Mscrm.HomepageGrid.con_neshody.Edit.ToolTipTitle" ToolTipDescription="$LocLabels:Mscrm.HomepageGrid.con_neshody.Edit.ToolTipDescription" ModernImage="Edit" />
+      </CommandUIDefinition>
+    </CustomAction>
+  </CustomActions>
+  <Templates>
+    <RibbonTemplates Id="Mscrm.Templates"></RibbonTemplates>
+  </Templates>
+  <CommandDefinitions>
+    <CommandDefinition Id="con.con_neshody.Command1.klonovat">
+      <EnableRules />
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="klonovatNeshodu" Library="$webresource:con_klonovatNeshodu">
+          <CrmParameter Value="PrimaryControl" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.EditSelectedRecord">
+      <EnableRules>
+        <EnableRule Id="Mscrm.CheckBulkEditSupportForEntity" />
+        <EnableRule Id="Mscrm.VisualizationPaneNotMaximized" />
+        <EnableRule Id="Mscrm.IsValidForHierarchyView" />
+        <EnableRule Id="Mscrm.ShowOnNonModernAndModernIfAllowed" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.BulkEditPrivilege" />
+        <DisplayRule Id="Mscrm.WriteSelectedEntityPermission" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="openCustomPage" Library="$webresource:con_openCustomPage">
+          <CrmParameter Value="SelectedControlSelectedItemIds" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+  </CommandDefinitions>
+  <RuleDefinitions>
+    <TabDisplayRules />
+    <DisplayRules>
+      <DisplayRule Id="Mscrm.BulkEditPrivilege">
+        <MiscellaneousPrivilegeRule PrivilegeName="BulkEdit" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.WriteSelectedEntityPermission">
+        <EntityPrivilegeRule PrivilegeType="Write" PrivilegeDepth="Basic" AppliesTo="SelectedEntity" />
+      </DisplayRule>
+    </DisplayRules>
+    <EnableRules>
+      <EnableRule Id="Mscrm.CheckBulkEditSupportForEntity">
+        <CustomRule FunctionName="XrmCore.InternalUtilities.DialogUtilities.isMobileCompanionApp" Library="$webresource:Main_system_library.js" InvertResult="true" />
+        <OrRule>
+          <Or>
+            <SelectionCountRule AppliesTo="SelectedEntity" Minimum="1" Maximum="1" />
+          </Or>
+          <Or>
+            <SelectionCountRule AppliesTo="SelectedEntity" Minimum="2" />
+            <CustomRule FunctionName="XrmCore.Commands.BulkEdit.isBulkEditEnabledForEntity" Library="$webresource:Main_system_library.js">
+              <CrmParameter Value="SelectedEntityTypeName" />
+            </CustomRule>
+          </Or>
+        </OrRule>
+      </EnableRule>
+      <EnableRule Id="Mscrm.IsValidForHierarchyView">
+        <CustomRule FunctionName="XrmCore.Rules.HierarchyView.isValidForHierarchyView" Library="$webresource:Main_system_library.js" />
+      </EnableRule>
+      <EnableRule Id="Mscrm.ShowOnNonModernAndModernIfAllowed">
+        <OrRule>
+          <Or>
+            <CommandClientTypeRule Type="Modern" InvertResult="true" />
+          </Or>
+          <Or>
+            <CustomRule FunctionName="XrmCore.InternalUtilities.DialogUtilities.isAllowLegacyDialogsEmbedding" Library="$webresource:Main_system_library.js" />
+          </Or>
+        </OrRule>
+      </EnableRule>
+      <EnableRule Id="Mscrm.VisualizationPaneNotMaximized">
+        <OrRule>
+          <Or>
+            <CommandClientTypeRule Type="Modern" />
+          </Or>
+          <Or>
+            <CustomRule FunctionName="Mscrm.GridCommandActions.disableButtonsWhenChartMaximized" Library="/_static/_common/scripts/CommandBarActions.js">
+              <CrmParameter Value="SelectedControl" />
+            </CustomRule>
+          </Or>
+        </OrRule>
+      </EnableRule>
+    </EnableRules>
+  </RuleDefinitions>
+  <LocLabels>
+    <LocLabel Id="con.con_neshody.Button2.Button.LabelText">
+      <Titles>
+        <Title description="Klonovat" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.HomepageGrid.con_neshody.Edit.Alt">
+      <Titles>
+        <Title description="Souhrn neshody" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.HomepageGrid.con_neshody.Edit.LabelText">
+      <Titles>
+        <Title description="Souhrn neshody" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.HomepageGrid.con_neshody.Edit.ToolTipDescription">
+      <Titles>
+        <Title description="Souhrn neshody" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="Mscrm.HomepageGrid.con_neshody.Edit.ToolTipTitle">
+      <Titles>
+        <Title description="Souhrn neshody" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+  </LocLabels>
+</RibbonDiffXml>

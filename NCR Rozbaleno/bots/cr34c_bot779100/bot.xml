@@ -1,0 +1,19 @@
+<bot schemaname="cr34c_bot779100">
+  <authenticationmode>2</authenticationmode>
+  <authenticationtrigger>1</authenticationtrigger>
+  <iscustomizable>1</iscustomizable>
+  <language>1033</language>
+  <name>Copilot in Power Apps - Řízení neshod (...</name>
+  <runtimeprovider>0</runtimeprovider>
+  <synchronizationstatus>{
+  "$kind": "BotSynchronizationDetails",
+  "contentVersion": 2,
+  "currentSynchronizationState": {
+    "$kind": "SynchronizationState",
+    "provisioningStatus": "ProvisionedWithoutRegistration",
+    "state": "Synchronized"
+  },
+  "lastSynchronizedOnUtc": "2025-05-15T16:30:28.9249515Z"
+}</synchronizationstatus>
+  <template>empty-1.0.0</template>
+</bot>

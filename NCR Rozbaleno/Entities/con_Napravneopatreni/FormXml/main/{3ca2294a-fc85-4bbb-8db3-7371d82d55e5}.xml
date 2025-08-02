@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{3ca2294a-fc85-4bbb-8db3-7371d82d55e5}</formid>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form headerdensity="HighReadOnlyValues">
+      <tabs>
+        <tab verticallayout="true" id="{95339f3c-2f38-43db-a369-69dd13f23ed4}" IsUserDefined="1" visible="true" expanded="true" name="detail">
+          <labels>
+            <label description="Detail" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="50%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{a241be8e-1d25-4044-82e5-865f9b6694a4}" name="napravne_opatreni_detail">
+                  <labels>
+                    <label description="Nápravné opatření detail" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{af646d93-0efe-47ae-9c62-fd67df791da0}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Neshody" languagecode="1033" />
+                        </labels>
+                        <control id="con_neshody" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="con_neshody" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{51ca8ebe-e0eb-4b58-a992-72c151008d7b}">
+                        <labels>
+                          <label description="Název" languagecode="1033" />
+                        </labels>
+                        <control id="con_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="con_name" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{3a5c2c9e-31dc-4bba-adcc-3924454f20e1}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Popis opatření" languagecode="1033" />
+                        </labels>
+                        <control id="con_popisopatreni" classid="{E0DECE4B-6FC8-4A8F-A065-082708572369}" datafieldname="con_popisopatreni" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{207815a2-1aa8-4fe5-88a5-011bee3f05e0}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Přiřazeno" languagecode="1033" />
+                        </labels>
+                        <control id="con_prirazeno" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="con_prirazeno" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{8eda32bb-aaac-4a4a-9ae0-1c39d4a0182b}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Termín splnění" languagecode="1033" />
+                        </labels>
+                        <control id="con_terminsplneni" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="con_terminsplneni" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{f476218c-a911-4d38-80c7-0f34f4f4d1b7}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Stav" languagecode="1033" />
+                        </labels>
+                        <control id="con_stav" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="con_stav" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{a688e7da-8a8d-4d01-b38c-682cec1e51f2}" showlabel="true" visible="true" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Owner" languagecode="1033" />
+                        </labels>
+                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+            <column width="50%">
+              <sections>
+                <section name="detail_priloha" id="2e791b8f-07a0-4195-85c0-b04bac98bcab" IsUserDefined="0" locklevel="0" showlabel="false" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Příloha" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row />
+                    <row>
+                      <cell locklevel="0" id="{b5e7ef87-fc81-4982-84df-bad32f96ebbf}" rowspan="15" colspan="1">
+                        <labels>
+                          <label description="Note Text" languagecode="1033" />
+                        </labels>
+                        <control id="notescontrol" classid="{06375649-C143-495E-A496-C962E5B4488E}" disabled="false">
+                          <parameters>
+                            <UClientUniqueName>Priloha</UClientUniqueName>
+                            <UClientHideRecentDates>false</UClientHideRecentDates>
+                            <UClientShowPersona>default</UClientShowPersona>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                    <row />
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{3b62d76a-8c0e-4afe-8671-ceefebcd5385}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{57f88c67-1b1c-4be8-80d7-accb2f1d3680}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{f70fbcf2-a7ca-4962-819a-077605ba4c1f}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{5b82a9c7-0e04-4511-8214-9f413084383b}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{9832b669-d658-4fb1-822a-db2c2154cb0e}" locklevel="0" colspan="1" rowspan="1">
+              <labels>
+                <label description="ID" languagecode="1033" />
+              </labels>
+              <control id="header_con_id" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="con_id" disabled="false" />
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{d3ef675f-17ce-4c38-9072-a276baf7423d}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{f79e8df2-6640-4412-8c5e-573307a3148a}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{051dbd29-1e94-4c52-87b5-e5b973b42d67}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{2ae02b11-b02f-446c-a41b-3e574c07d6f4}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <DisplayConditions Order="0" FallbackForm="true">
+        <Everyone />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

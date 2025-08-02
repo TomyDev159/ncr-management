@@ -1,0 +1,248 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps": {
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        },
+        "connection": {
+          "connectionReferenceLogicalName": "con_sharedcommondataserviceforapps_09290"
+        },
+        "runtimeSource": "embedded"
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        },
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        }
+      },
+      "triggers": {
+        "manual": {
+          "type": "Request",
+          "kind": "Http",
+          "inputs": {
+            "triggerAuthenticationType": "All",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "nazev": {
+                  "type": "string"
+                },
+                "popis": {
+                  "type": "string"
+                },
+                "typ": {
+                  "type": "string"
+                },
+                "emailManazera": {
+                  "type": "string"
+                }
+              }
+            },
+            "method": "POST"
+          },
+          "metadata": {
+            "operationMetadataId": "d08cf580-ea7b-4a67-92c9-88cbd0902ed9"
+          }
+        }
+      },
+      "actions": {
+        "Add_a_new_row": {
+          "type": "OpenApiConnection",
+          "inputs": {
+            "parameters": {
+              "entityName": "con_neshodies",
+              "item/con_nazev": "@triggerBody()?['nazev']",
+              "item/con_Odpovednymanazer@odata.bind": "@first(outputs('List_rows')?['body/value'])?['uzivatelid']\r\n",
+              "item/con_popis": "@triggerBody()?['popis']",
+              "item/con_typ": "@variables('typ_hodnota')"
+            },
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+              "operationId": "CreateRecord",
+              "connectionName": "shared_commondataserviceforapps"
+            }
+          },
+          "runAfter": {
+            "List_rows": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "20aa94f9-09d7-4884-b038-cf72ba7fc1d3"
+          }
+        },
+        "Initialize_variable_Typ": {
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "typ_hodnota",
+                "type": "integer"
+              }
+            ]
+          },
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "a7899a77-d675-48bc-8aa6-dc35beaee40d"
+          }
+        },
+        "Switch_název_na_hodnotu_typu": {
+          "type": "Switch",
+          "expression": "@triggerBody()?['typ']",
+          "default": {
+            "actions": {
+              "Chybova_zprava": {
+                "type": "Response",
+                "kind": "Http",
+                "inputs": {
+                  "statusCode": 400,
+                  "body": {
+                    "error": "Neplatná hodnota pole 'typ'! Povolené hodnoty: Bezpečnostní, Kvalita, Procesní, Jiné"
+                  }
+                },
+                "metadata": {
+                  "operationMetadataId": "b498238a-18d3-40d7-a35f-1634b63b49e8"
+                }
+              },
+              "Terminate": {
+                "type": "Terminate",
+                "inputs": {
+                  "runStatus": "Failed"
+                },
+                "runAfter": {
+                  "Chybova_zprava": [
+                    "Succeeded"
+                  ]
+                },
+                "metadata": {
+                  "operationMetadataId": "d49a36d4-fb1f-4bb4-a150-67b229e9e21d"
+                }
+              }
+            }
+          },
+          "cases": {
+            "Bezpečnostní": {
+              "actions": {
+                "Set_variable_Bezpečnostní": {
+                  "type": "SetVariable",
+                  "inputs": {
+                    "name": "typ_hodnota",
+                    "value": 769140000
+                  },
+                  "metadata": {
+                    "operationMetadataId": "aaf47278-d6ca-4eca-b400-c87843063650"
+                  }
+                }
+              },
+              "case": "Bezpečnostní"
+            },
+            "Kvalita": {
+              "actions": {
+                "Set_variable_Kvalita": {
+                  "type": "SetVariable",
+                  "inputs": {
+                    "name": "typ_hodnota",
+                    "value": 769140001
+                  },
+                  "metadata": {
+                    "operationMetadataId": "1f5fb8ab-8c7f-4074-a547-591039c321ae"
+                  }
+                }
+              },
+              "case": "Kvalita"
+            },
+            "Procesní": {
+              "actions": {
+                "Set_variable_Procesní": {
+                  "type": "SetVariable",
+                  "inputs": {
+                    "name": "typ_hodnota",
+                    "value": 769140002
+                  },
+                  "metadata": {
+                    "operationMetadataId": "6ea293a5-f2d8-4daf-ad90-73c44ea710cf"
+                  }
+                }
+              },
+              "case": "Procesní"
+            },
+            "Jiné": {
+              "actions": {
+                "Set_variable_Jiné": {
+                  "type": "SetVariable",
+                  "inputs": {
+                    "name": "typ_hodnota",
+                    "value": 769140003
+                  },
+                  "metadata": {
+                    "operationMetadataId": "7aafe266-eacc-495e-860d-c88f18e71b48"
+                  }
+                }
+              },
+              "case": "Jiné"
+            }
+          },
+          "runAfter": {
+            "Initialize_variable_Typ": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "8b5c7b46-9c6a-40bd-9dcd-4d116b6080b3"
+          }
+        },
+        "List_rows": {
+          "type": "OpenApiConnection",
+          "inputs": {
+            "parameters": {
+              "entityName": "con_uzivateles",
+              "$filter": "con_email eq '@{triggerBody()?['emailManazera']}'"
+            },
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+              "operationId": "ListRecords",
+              "connectionName": "shared_commondataserviceforapps"
+            }
+          },
+          "runAfter": {
+            "Switch_název_na_hodnotu_typu": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "4601e8c6-19c1-4cc4-b694-ec364b3d0b0e"
+          }
+        },
+        "Response": {
+          "type": "Response",
+          "kind": "Http",
+          "inputs": {
+            "statusCode": 201,
+            "body": {
+              "idNeshody": "@{outputs('Add_a_new_row')?['body/con_id']}"
+            }
+          },
+          "runAfter": {
+            "Add_a_new_row": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "6f30910b-a952-4769-a756-5951ee4b72fa"
+          }
+        }
+      }
+    },
+    "templateName": null
+  },
+  "schemaVersion": "1.0.0.0"
+}

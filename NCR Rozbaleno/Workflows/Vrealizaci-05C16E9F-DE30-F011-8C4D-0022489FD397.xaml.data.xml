@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Workflow WorkflowId="{05c16e9f-de30-f011-8c4d-0022489fd397}" Name="V realizaci" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <XamlFileName>/Workflows/Vrealizaci-05C16E9F-DE30-F011-8C4D-0022489FD397.xaml</XamlFileName>
+  <Type>1</Type>
+  <Subprocess>0</Subprocess>
+  <Category>2</Category>
+  <Mode>1</Mode>
+  <Scope>4</Scope>
+  <OnDemand>0</OnDemand>
+  <TriggerOnCreate>0</TriggerOnCreate>
+  <TriggerOnDelete>0</TriggerOnDelete>
+  <AsyncAutodelete>0</AsyncAutodelete>
+  <SyncWorkflowLogOnFailure>0</SyncWorkflowLogOnFailure>
+  <StateCode>0</StateCode>
+  <StatusCode>1</StatusCode>
+  <RunAs>1</RunAs>
+  <IsTransacted>1</IsTransacted>
+  <IntroducedVersion>1.0.0.0</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <BusinessProcessType>0</BusinessProcessType>
+  <IsCustomProcessingStepAllowedForOtherPublishers>1</IsCustomProcessingStepAllowedForOtherPublishers>
+  <ProcessTriggerScope>2</ProcessTriggerScope>
+  <ModernFlowType>0</ModernFlowType>
+  <PrimaryEntity>con_Napravneopatreni</PrimaryEntity>
+  <LocalizedNames>
+    <LocalizedName languagecode="1033" description="V realizaci" />
+  </LocalizedNames>
+  <labels>
+    <steplabels id="{1acf9e2e-cd9c-4219-b4ec-7defbdd1d6e4}">
+      <label languagecode="1033" description="Vyplňte přiřazenou osobu." />
+    </steplabels>
+    <steplabels id="{79c80b5b-3067-4e6c-9a83-135d1481e32e}">
+      <label languagecode="1033" description="Vyplňte termín splnění." />
+    </steplabels>
+  </labels>
+</Workflow>

@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AppModule>
+  <UniqueName>con_RizenineshodNCR</UniqueName>
+  <IntroducedVersion>1.0.0.0</IntroducedVersion>
+  <WebResourceId>953b9fac-1e5e-e611-80d6-00155ded156f</WebResourceId>
+  <OptimizedFor></OptimizedFor>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+  <FormFactor>1</FormFactor>
+  <ClientType>4</ClientType>
+  <NavigationType>0</NavigationType>
+  <AppModuleComponents>
+    <AppModuleComponent type="1" schemaName="con_napravneopatreni" />
+    <AppModuleComponent type="1" schemaName="con_neshody" />
+    <AppModuleComponent type="26" id="{d5095a74-3442-f011-877a-0022489fd397}" />
+    <AppModuleComponent type="26" id="{3d8d1381-c849-f011-877a-0022489fd397}" />
+    <AppModuleComponent type="26" id="{40de368a-0ef8-4948-b958-18435fab6d91}" />
+    <AppModuleComponent type="26" id="{f19c012a-c17b-4d99-8683-2d27cb65e657}" />
+    <AppModuleComponent type="26" id="{6de1881e-92e3-480e-8609-2ebb4413907f}" />
+    <AppModuleComponent type="26" id="{1cb5c7f3-e7a7-48dd-8c90-4b39fc7bc8be}" />
+    <AppModuleComponent type="26" id="{d955d894-a803-4238-9da2-5c46a72bdb63}" />
+    <AppModuleComponent type="26" id="{c5bb4979-6bbc-4d93-be99-664b1540554c}" />
+    <AppModuleComponent type="26" id="{f37e903b-4847-4ed3-8a96-747bb36fbd64}" />
+    <AppModuleComponent type="26" id="{26a2855e-58eb-4665-b4d1-8cf8c8ef69e1}" />
+    <AppModuleComponent type="26" id="{85d08da1-85cd-4d11-a28b-9911b3dc4b80}" />
+    <AppModuleComponent type="26" id="{23ab410d-3e8b-4806-a70e-b696aa8df767}" />
+    <AppModuleComponent type="26" id="{e236bc15-abf5-4317-a7db-e60beeac3900}" />
+    <AppModuleComponent type="62" schemaName="con_RizenineshodNCR" />
+  </AppModuleComponents>
+  <AppModuleRoleMaps>
+    <Role id="{627090ff-40a3-4053-8790-584edc5be201}" />
+    <Role id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+  </AppModuleRoleMaps>
+  <LocalizedNames>
+    <LocalizedName description="Řízení neshod (NCR)" languagecode="1033" />
+  </LocalizedNames>
+  <appelements>
+    <appelement uniquename="con_con_RizenineshodNCR_canvasappid_con_souhrnneshody_1ec46">
+      <canvasappid>
+        <name>con_souhrnneshody_1ec46</name>
+      </canvasappid>
+      <iscustomizable>1</iscustomizable>
+      <name>con_con_RizenineshodNCR_canvasappid_con_souhrnneshody_1ec46</name>
+    </appelement>
+    <appelement uniquename="cr34c_bot779100">
+      <iscustomizable>1</iscustomizable>
+      <objectid>
+        <schemaname>cr34c_bot779100</schemaname>
+      </objectid>
+      <objectidtype>bot</objectidtype>
+    </appelement>
+  </appelements>
+  <appsettings>
+    <appsetting settingdefinitionid.uniquename="AppChannel">
+      <iscustomizable>1</iscustomizable>
+      <value>1</value>
+    </appsetting>
+  </appsettings>
+</AppModule>

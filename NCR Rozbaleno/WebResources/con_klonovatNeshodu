@@ -1,0 +1,49 @@
+function klonovatNeshodu(primaryControl) {
+    // Získání ID aktuálního záznamu na formuláři
+    var recordId = primaryControl.data.entity.getId().replace(/[{}]/g, "");
+
+    // Ošetření prázdného ID
+    if (!recordId) {
+        Xrm.Navigation.openAlertDialog({ text: "Nebyl vybrán žádný záznam ke klonování." });
+        return;
+    }
+
+    // Příprava request objektu pro volání Custom Action
+    var req = {};
+    req.Clone = {
+        "@odata.type": "Microsoft.Dynamics.CRM.con_neshody", // OData typ entity (musí odpovídat logickému jménu entity v Dataverse)
+        "con_neshodyid": recordId // Primární klíč entity (pozor na přesné schema name, zjistit v Power Apps!)
+    };
+
+    // Metadata k requestu (nutné pro Xrm.WebApi.online.execute, aby věděl, jak volat akci)
+    // - boundParameter: název parametru v Custom Action
+    // - parameterTypes: definice typů
+    // - operationType: 0 znamená 'Action' (synchronní)
+    // - operationName: přesný 'Unique Name' akce
+    req.getMetadata = function () {
+        return {
+            boundParameter: "Clone",
+            parameterTypes: {
+                "Clone": {
+                    "typeName": "Microsoft.Dynamics.CRM.con_neshody",
+                    "structuralProperty": 5 // 5 = EntityReference
+                }
+            },
+            operationType: 0,
+            operationName: "con_cloneneshody"
+        };
+    };
+
+    // Volání Custom Action pomocí Web API
+    // Pokud request není správně sestaven (chyba v názvech, typech apod.), zde vznikne typická chyba serializace
+    Xrm.WebApi.online.execute(req).then(
+        function (result) {
+            // Úspěch – zobrazím zprávu uživateli
+            Xrm.Navigation.openAlertDialog({ text: "Neshoda byla úspěšně naklonována." });
+        },
+        function (error) {
+            // Chyba – vypíšu detailní zprávu pro uživatele
+            Xrm.Navigation.openAlertDialog({ text: "Chyba při klonování neshody: " + error.message });
+        }
+    );
+}

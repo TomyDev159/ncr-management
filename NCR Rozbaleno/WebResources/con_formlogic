@@ -1,0 +1,46 @@
+function onTypeChange(executionContext)
+{
+var formContext = executionContext.getFormContext();
+var typValue = formContext.getAttribute("con_typ").getValue();
+
+
+if (typValue === 769140000)
+{
+    formContext.getControl("con_zavaznosturazu").setVisible(true);
+}
+else
+{
+    formContext.getControl("con_zavaznosturazu").setVisible(false);
+}
+
+if (typValue === 769140001)
+{
+    formContext.getControl("con_pozadovanaspecifikace").setVisible(true);
+    formContext.getControl("con_zjistenaspecifikace").setVisible(true);
+}
+else
+{
+    formContext.getControl("con_pozadovanaspecifikace").setVisible(false);
+    formContext.getControl("con_zjistenaspecifikace").setVisible(false);
+}
+
+if (typValue === 769140002)
+{
+    formContext.getControl("con_porusenyprocesnikrok").setVisible(true);
+    formContext.getControl("con_zavaznostdopadu").setVisible(true);
+}
+else
+{
+    formContext.getControl("con_porusenyprocesnikrok").setVisible(false);
+    formContext.getControl("con_zavaznostdopadu").setVisible(false);
+}
+
+ if (typValue === 769140003)
+{
+    formContext.getControl("con_poznamka").setVisible(true);
+}
+else
+{
+    formContext.getControl("con_poznamka").setVisible(false);
+}
+}

@@ -1,0 +1,288 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "con_sharedcommondataserviceforapps_09290"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      },
+      "shared_onedriveforbusiness": {
+        "runtimeSource": "invoker",
+        "connection": {
+          "connectionReferenceLogicalName": "con_sharedonedriveforbusiness_87f88"
+        },
+        "api": {
+          "name": "shared_onedriveforbusiness"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "manual": {
+          "splitOn": "@triggerBody()['rows']",
+          "metadata": {
+            "operationMetadataId": "064c5ad5-0198-4e50-9c1e-e767607722af"
+          },
+          "type": "Request",
+          "kind": "ApiConnection",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "rows": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "entity": {
+                        "type": "object",
+                        "properties": {
+                          "con_neshodyid": {
+                            "title": "Neshody",
+                            "type": "string",
+                            "format": "guid"
+                          }
+                        },
+                        "required": [
+                          "con_neshodyid"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "entity"
+                    ]
+                  }
+                }
+              },
+              "required": [
+                "rows"
+              ]
+            },
+            "host": {
+              "connection": {
+                "name": "@parameters('$connections')['shared_commondataserviceforapps']['connectionId']"
+              }
+            },
+            "operationId": "RecordSelected",
+            "parameters": {
+              "entityName": "con_neshodies"
+            }
+          }
+        }
+      },
+      "actions": {
+        "Get_neshody": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "3f21d8e5-19de-49d9-9f60-afc2f7c1009b"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "GetItem",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "con_neshodies",
+              "recordId": "@triggerBody()?['entity']?['con_neshodyid']"
+            },
+            "authentication": {
+              "type": "Raw",
+              "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+            }
+          }
+        },
+        "List_Nápravná_opatření": {
+          "runAfter": {
+            "Get_neshody": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "4f43136a-5b3f-442d-8da8-d895bf4d3627"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "ListRecords",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "con_napravneopatrenis",
+              "$filter": " _con_neshody_value eq @{outputs('Get_neshody')?['body/con_neshodyid']}\n\n\n"
+            },
+            "authentication": {
+              "type": "Raw",
+              "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+            }
+          }
+        },
+        "Apply_to_each": {
+          "foreach": "@outputs('List_Nápravná_opatření')?['body/value']",
+          "actions": {
+            "Append_to_string_variable": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "9e3f76c7-1cc1-4c45-95ae-53e30d3fba8d"
+              },
+              "type": "AppendToStringVariable",
+              "inputs": {
+                "name": "html_radky_opatreni",
+                "value": "<tr>\n  <td>@{item()?['con_name']}</td> \n  <td>@{item()?['con_terminsplneni']}</td>\n  <td>@{item()?['_con_prirazeno_value@OData.Community.Display.V1.FormattedValue']}</td>\n  <td>@{item()?['con_stav@OData.Community.Display.V1.FormattedValue']}</td>\n</tr>\r"
+              }
+            }
+          },
+          "runAfter": {
+            "Initialize_variable": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "73623321-73d9-45ec-b406-5f0c1bff4a48"
+          },
+          "type": "Foreach"
+        },
+        "Initialize_variable": {
+          "runAfter": {
+            "List_Nápravná_opatření": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "a3b54ef6-cb31-46ee-bace-135c1456e874"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "html_radky_opatreni",
+                "type": "string"
+              }
+            ]
+          }
+        },
+        "Create_file": {
+          "runAfter": {
+            "Compose": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "c374bf6d-af87-43a9-a779-f26293521a3b"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_onedriveforbusiness",
+              "operationId": "CreateFile",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_onedriveforbusiness"
+            },
+            "parameters": {
+              "folderPath": "/NCR Report",
+              "name": "Report_@{outputs('Get_neshody')?['body/con_id']}.html",
+              "body": "@outputs('Compose')"
+            },
+            "authentication": {
+              "type": "Raw",
+              "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+            }
+          },
+          "runtimeConfiguration": {
+            "contentTransfer": {
+              "transferMode": "Chunked"
+            }
+          }
+        },
+        "Convert_file": {
+          "runAfter": {
+            "Create_file": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "278431c9-7b70-4a29-8934-9fb118fbad68"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_onedriveforbusiness",
+              "operationId": "ConvertFile",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_onedriveforbusiness"
+            },
+            "parameters": {
+              "id": "@outputs('Create_file')?['body/Id']",
+              "type": "PDF"
+            },
+            "authentication": {
+              "type": "Raw",
+              "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+            }
+          }
+        },
+        "Add_a_new_row": {
+          "runAfter": {
+            "Convert_file": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "f514944b-813f-4b70-9272-e95299d93f6c"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "CreateRecord",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "annotations",
+              "item/subject": "Report PDF",
+              "item/isdocument": true,
+              "item/documentbody": "@outputs('Convert_file')?['body']['$content']",
+              "item/filename": "Report_@{outputs('Get_neshody')?['body/con_id']}.pdf",
+              "item/mimetype": "application/pdf",
+              "item/objectid_con_neshody@odata.bind": "con_neshodies/@{triggerBody()?['entity']['con_neshodyid']}\n"
+            },
+            "authentication": {
+              "type": "Raw",
+              "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+            }
+          }
+        },
+        "Compose": {
+          "runAfter": {
+            "Apply_to_each": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "626e7708-6795-4ed9-8c19-f4d13dd1a01f"
+          },
+          "type": "Compose",
+          "inputs": "<html>\n  <head>\n     <meta charset=\"UTF-8\">\n       <style>\n          body { font-family: Arial, sans-serif; }\n          table { border-collapse: collapse; width: 100%; }\n          th, td { border: 1px solid #ccc; padding: 5px; text-align: left; }\n          th { background: #eee; }\n       </style>\n     </head>\n     <body>\n       <h1>Report neshody @{outputs('Get_neshody')?['body/con_nazev']}</h1>\n       <p><strong>Typ:</strong>@{outputs('Get_neshody')?['body/con_typ@OData.Community.Display.V1.FormattedValue']} </p>\n       <p><strong>Popis:</strong>@{outputs('Get_neshody')?['body/con_popis']} </p>\n       <p><strong>Datum nahlášení:</strong>@{outputs('Get_neshody')?['body/createdon']} </p>\n       <p><strong>Odpovědný manažer:</strong>@{outputs('Get_neshody')?['body/_con_odpovednymanazer_value@OData.Community.Display.V1.FormattedValue']}\n       <p><strong>Stav neshody:</strong> @{outputs('Get_neshody')?['body/con_stav@OData.Community.Display.V1.FormattedValue']}</p>\n</p>\n      <h2>Nápravná opatření</h2>\n       <table>\n        <tr><th>Název</th><th>Termín</th><th>Přiřazeno</th> \n        <th>Stav</th></tr> @{variables('html_radky_opatreni')}\n       </table>\n     </body>\n </html>"
+        }
+      }
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}

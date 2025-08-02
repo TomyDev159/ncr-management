@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{d5095a74-3442-f011-877a-0022489fd397}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="con_nazev" select="1" icon="1" preview="1">
+        <row name="result" id="con_neshodyid">
+          <cell name="con_id" width="100" />
+          <cell name="con_nazev" width="200" />
+          <cell name="con_typ" width="100" />
+          <cell name="con_stav" width="100" />
+          <cell name="createdon" width="100" />
+          <cell name="con_odpovednymanazer" width="157" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="true">
+        <entity name="con_neshody">
+          <attribute name="con_nazev" />
+          <attribute name="con_neshodyid" />
+          <attribute name="con_id" />
+          <attribute name="con_typ" />
+          <attribute name="con_stav" />
+          <attribute name="createdon" />
+          <attribute name="con_odpovednymanazer" />
+          <filter type="and">
+            <condition attribute="ownerid" operator="eq-userid" />
+          </filter>
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Moje neshody" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="Moje neshody" languagecode="1033" />
+    </Descriptions>
+  </savedquery>
+</savedqueries>

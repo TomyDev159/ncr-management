@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebResource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <WebResourceId>{8f801fe2-1530-f011-8c4d-0022489fd397}</WebResourceId>
+  <Name>con_formlogic</Name>
+  <DisplayName>Form Logic JS</DisplayName>
+  <Description>Podmíněné zobrazení polí</Description>
+  <LanguageCode>0</LanguageCode>
+  <WebResourceType>3</WebResourceType>
+  <IntroducedVersion>1.0.0.0</IntroducedVersion>
+  <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
+  <IsAvailableForMobileOffline>0</IsAvailableForMobileOffline>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <IsHidden>0</IsHidden>
+  <FileName>/WebResources/con_formlogic8F801FE2-1530-F011-8C4D-0022489FD397</FileName>
+</WebResource>
